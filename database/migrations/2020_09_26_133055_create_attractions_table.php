@@ -15,6 +15,14 @@ class CreateAttractionsTable extends Migration
     {
         Schema::create('attractions', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->text('description');
+            $table->foreignId('city_id');
+            $table->longText('address');
+            $table->string('phone');
+            $table->integer('rating');
+            $table->foreignId('traveler_review_id');
+            $table->boolean('popular');
             $table->timestamps();
         });
     }

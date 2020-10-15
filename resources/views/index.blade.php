@@ -15,12 +15,78 @@
       <div class="row">
         <div class="col">
           <h2 class="font-weight-bold">Get List of Attractions</h2>
-          <p>Get all attractions</p>
-          <ul>
+          <p>Get all attractions.</p>
+          <ul class="mb-5">
             <li class="font-weight-bold">
               URL
             </li>
             <p>/api/attractions</p>
+            <li class="font-weight-bold">
+              Method:
+            </li>
+            <p style="color: salmon">GET</p>
+          </ul>
+
+          <h2 class="font-weight-bold">Detail Attraction by id</h2>
+          <p>Detail attraction by id.</p>
+          <ul class="mb-5">
+            <li class="font-weight-bold">
+              URL
+            </li>
+            <p>/api/attractions/{id}</p>
+            <li class="font-weight-bold">
+              Method:
+            </li>
+            <p style="color: salmon">GET</p>
+          </ul>
+
+          <h2 class="font-weight-bold">Get Image by id</h2>
+          <p>Get a image by id</p>
+          <ul class="mb-5">
+            <li class="font-weight-bold">
+              URL
+            </li>
+            <p>/api/images/{id}</p>
+            <li class="font-weight-bold">
+              Method:
+            </li>
+            <p style="color: salmon">GET</p>
+          </ul>
+
+          <h2 class="font-weight-bold">Get Popular Attractions</h2>
+          <p>Get popular attractions</p>
+          <ul class="mb-5">
+            <li class="font-weight-bold">
+              URL
+            </li>
+            <p>/api/popular/attractions</p>
+            <li class="font-weight-bold">
+              Method:
+            </li>
+            <p style="color: salmon">GET</p>
+          </ul>
+
+          <h2 class="font-weight-bold">Get Popular Cities</h2>
+          <p>Get popular cities</p>
+          <ul class="mb-5">
+            <li class="font-weight-bold">
+              URL
+            </li>
+            <p>/api/popular/cities</p>
+            <li class="font-weight-bold">
+              Method:
+            </li>
+            <p style="color: salmon">GET</p>
+          </ul>
+          
+          
+          <h2 class="font-weight-bold">Get List of Categories</h2>
+          <p>Get list categories</p>
+          <ul class="mb-5">
+            <li class="font-weight-bold">
+              URL
+            </li>
+            <p>/api/categories</p>
             <li class="font-weight-bold">
               Method:
             </li>
