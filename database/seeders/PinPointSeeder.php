@@ -29,6 +29,62 @@ class PinPointSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'attraction_id' => 3,
+                'latitude' => '-8.718329',
+                'longitude' => '115.168678',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'attraction_id' => 4,
+                'latitude' => '-7.607704',
+                'longitude' => '110.203741',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'attraction_id' => 5,
+                'latitude' => '-3.069207',
+                'longitude' => '119.741419',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'attraction_id' => 6,
+                'latitude' => '2.797289',
+                'longitude' => '98.617569',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'attraction_id' => 7,
+                'latitude' => '-0.564079',
+                'longitude' => '130.270814',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'attraction_id' => 8,
+                'latitude' => '-8.411083',
+                'longitude' => '116.457220',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'attraction_id' => 9,
+                'latitude' => '-4.545389',
+                'longitude' => '129.852746',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'attraction_id' => 10,
+                'latitude' => '-8.370055',
+                'longitude' => '115.131372',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }

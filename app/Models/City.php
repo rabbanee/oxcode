@@ -20,9 +20,4 @@ class City extends Model
     {
         return $this->hasMany('App\Models\Attraction');
     }
-
-    // public function image()
-    // {
-    //     return $this->hasMany('App\Models\Image', 'foreign_id');
-    // }
 }
