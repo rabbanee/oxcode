@@ -73,7 +73,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/Kuta-Beach-Sunset.jpg',
+                    'url' => 'attractions/Kuta-beach-Sunset.jpg',
                     'imageable_id' => '3',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
