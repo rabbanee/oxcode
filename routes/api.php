@@ -38,7 +38,7 @@ Route::get('email/resend', [VerificationController::class, 'resend'])->name('ver
 
 Route::apiResource('attractions', AttractionController::class);
 
-Route::get('attractions/filter', [AttractionController::class, 'filter']);
+Route::post('attractions/filter', [AttractionController::class, 'filter']);
 
 Route::prefix('popular')->group(function () {
     Route::get('attractions', [AttractionController::class, 'popular'])->name('popular.attractions');

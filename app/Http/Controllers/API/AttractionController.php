@@ -73,4 +73,19 @@ class AttractionController extends Controller
 
         return ListResource::collection($attractions);
     }
+
+    public function filter(Request $request, Attraction $attraction)
+    {
+        // return $request->input('type_of_attractions');
+        // Search for a attraction based on type of attractions
+        if ($request->has('type_of_attractions')) {
+            // return $request->input('type_of_attractions')['from'];
+            $attraction->whereHas('type_of_attractions', function ($query) use ($request) {
+                $query->where('from', $request->input('type_of_attractions')['from']);
+                $query->where('to', $request->input('type_of_attractions')['to']);
+            });
+        }
+
+        // return Attraction::all();
+    }
 }
