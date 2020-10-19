@@ -1,6 +1,4 @@
-### oxcode back end
-
-# Install
+# Configure
 
     1. php artisan config:cache
     2. php artisan migrate:fresh --seed
