@@ -81,8 +81,9 @@ class AttractionController extends Controller
         if ($request->has('type_of_attractions')) {
             // return $request->input('type_of_attractions')['from'];
             $attraction->whereHas('type_of_attractions', function ($query) use ($request) {
-                $query->where('from', $request->input('type_of_attractions')['from']);
-                $query->where('to', $request->input('type_of_attractions')['to']);
+                return $query;
+                // $query->where('from', $request->input('type_of_attractions')['from']);
+                // $query->where('to', $request->input('type_of_attractions')['to']);
             });
         }
 
