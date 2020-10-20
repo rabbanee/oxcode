@@ -9,8 +9,10 @@ class HoursOfOperation extends Model
 {
     use HasFactory;
 
+    protected $protected = ['id'];
+
     public function attraction()
     {
-        $this->belongsTo('App\Models\Attraction');
+        $this->belongsTo('App\Models\Attraction', 'attraction_id');
     }
 }

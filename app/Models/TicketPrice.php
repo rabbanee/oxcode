@@ -9,6 +9,8 @@ class TicketPrice extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function attraction()
     {
         return $this->belongsTo('App\Models\Attraction');

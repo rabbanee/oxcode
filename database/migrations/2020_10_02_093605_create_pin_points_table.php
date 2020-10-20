@@ -16,8 +16,8 @@ class CreatePinPointsTable extends Migration
         Schema::create('pin_points', function (Blueprint $table) {
             $table->id();
             $table->foreignId('attraction_id');
-            $table->text('latitude');
-            $table->text('longitude');
+            $table->double('latitude');
+            $table->double('longitude');
             $table->timestamps();
         });
     }

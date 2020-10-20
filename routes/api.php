@@ -34,11 +34,13 @@ Route::group(['middleware' => 'auth:api', 'verified'], function () {
 
 Route::get('email/verify/{id}',  [VerificationController::class, 'verify'])->name('verification.verify'); // Make sure to keep this as your route name
 
+Route::get('test');
+
 Route::get('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
 
 Route::apiResource('attractions', AttractionController::class);
 
-Route::post('attractions/filter', [AttractionController::class, 'filter']);
+Route::post('attractions/search', [AttractionController::class, 'search']);
 
 Route::prefix('popular')->group(function () {
     Route::get('attractions', [AttractionController::class, 'popular'])->name('popular.attractions');

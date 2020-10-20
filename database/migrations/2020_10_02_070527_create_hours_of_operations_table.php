@@ -15,7 +15,7 @@ class CreateHoursOfOperationsTable extends Migration
     {
         Schema::create('hours_of_operations', function (Blueprint $table) {
             $table->id();
-            $table->string('attraction_id');
+            $table->foreignId('attraction_id');
             $table->string('from');
             $table->string('to');
             $table->timestamps();
