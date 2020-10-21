@@ -105,7 +105,7 @@
             </li>
             <p style="color: salmon">GET</p>
           </ul>
-
+          
           <h2 class="font-weight-bold">Search Attractions</h2>
           <p>Get list attractions by multiple filters</p>
           <ul class="mb-5">
@@ -124,6 +124,49 @@
             <ul>
               <li>
                 JSON: <code style="color: salmon">{ "name" : string, "city": string, "hours_of_operation": { from: "00:00", to: "00:00" }, "categories": array, "sort_by": string }</code>
+              </li>
+            </ul>
+          </ul>
+          
+          <h2 class="font-weight-bold">Register</h2>
+          <p>Register user</p>
+          <ul class="mb-5">
+            <li class="font-weight-bold">
+              URL
+            </li>
+            <p>/api/auth/register</p>
+            <li class="font-weight-bold">
+              Method:
+            </li>
+            <p style="color: salmon">POST</p>
+            <li class="font-weight-bold">
+              Body:
+            </li>
+            <ul>
+              <li>
+                JSON: <code style="color: salmon">{ "name" : string, "email": string, "password": string, "password_confirmation": string }</code>
+              </li>
+            </ul>
+          </ul>
+          
+          <h2 class="font-weight-bold">Login</h2>
+          <p>Login user</p>
+          <ul class="mb-5">
+            <li class="font-weight-bold">
+              URL
+            </li>
+            <p>/api/auth/login</p>
+            <li class="font-weight-bold">
+              Method:
+            </li>
+            <p style="color: salmon">POST</p>
+            <li class="font-weight-bold">
+              Body:
+            </li>
+            <p>remember_me is optional</p>
+            <ul>
+              <li>
+                JSON: <code style="color: salmon">{ "email": string, "password": string, "remember_me": boolean }</code>
               </li>
             </ul>
           </ul>

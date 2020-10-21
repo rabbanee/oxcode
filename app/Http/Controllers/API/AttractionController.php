@@ -113,7 +113,9 @@ class AttractionController extends Controller
 
         // Search for attractions based on their name.
         if ($request->has('name')) {
-            $attraction->where('name', 'ilike', $request->input('name'));
+            $name = $request->input('name');
+
+            $attraction->where('name', 'ilike', "%$name%");
         }
 
         // Search for attractions based on their city.
