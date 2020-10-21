@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             HoursOfOperationSeeder::class,
             TicketPriceSeeder::class,
-            PinPointSeeder::class,
         ]);
     }
 }

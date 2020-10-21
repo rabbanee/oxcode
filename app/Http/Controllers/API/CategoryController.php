@@ -14,4 +14,10 @@ class CategoryController extends Controller
         $categories = Category::all();
         return CategoryResource::collection($categories);
     }
+
+    public function popular()
+    {
+        $categories = Category::where('popular', true)->get();
+        return CategoryResource::collection($categories);
+    }
 }

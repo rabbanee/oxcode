@@ -28,7 +28,10 @@ class DetailResource extends JsonResource
             'phone' => $this->phone,
             'ticket_price' => new TicketPriceResource($this->ticketPrice),
             'address' => $this->address,
-            'pin_point' => new PinPointResource($this->pinPoint),
+            'pin_point' => [
+                "latitude" => $this->latitude,
+                "longitude" => $this->longitude,
+            ],
             'hours_of_operation' => new HoursOfOperationResource($this->hoursOfOperation),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

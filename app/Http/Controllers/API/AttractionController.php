@@ -6,6 +6,7 @@ use App\Http\Resources\Attraction\ListResource;
 use App\Models\Attraction;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Attraction\DetailResource;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -78,6 +79,12 @@ class AttractionController extends Controller
     public function search(Request $request, Attraction $attraction)
     {
         $attraction = $attraction->newQuery();
+        $rules = [
+            'categories' => 'array',
+            'hours_of_operation' => 'array',
+            'longitude' => 'required_if:sort_by,distance',
+            'latitude' => 'required_if:sort_by,distance',
+        ];
         // Attractions Sort By 
         if ($request->has('sort_by')) {
             switch ($request->input('sort_by')) {
@@ -121,13 +128,13 @@ class AttractionController extends Controller
         // Search for attractions based on their hours of operation.
         if ($request->has('hours_of_operation')) {
             $attraction->whereHas('hoursOfOperation', function ($query) use ($request) {
-                $query->where('from', $request->input('hours_of_operation')['from']);
-                $query->where('to', $request->input('hours_of_operation')['to']);
+                $query->where('from', $request->input('hours_of_operation')['from'] ?? '');
+                $query->where('to', $request->input('hours_of_operation')['to'] ?? '');
             });
         }
 
         // Search for attractions based on their categories.
-        if ($request->has('categories')) {
+        if ($request->has('categories') && is_array($request->input('categories'))) {
             $attraction->whereHas('category', function ($query) use ($request) {
                 $query->where(function ($query) use ($request) {
                     for ($i = 0; $i < count($request->input('categories')); $i++) {
@@ -137,6 +144,10 @@ class AttractionController extends Controller
             });
         }
 
+        $customMessages = [
+            'hours_of_operation.array' => 'The :attribute field must be an object.'
+        ];
+        $request->validate($rules, $customMessages);
         return $attraction->get();
     }
 }

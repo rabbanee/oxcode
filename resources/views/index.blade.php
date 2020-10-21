@@ -78,6 +78,19 @@
             </li>
             <p style="color: salmon">GET</p>
           </ul>
+
+          <h2 class="font-weight-bold">Get Popular Categories</h2>
+          <p>Get popular categories</p>
+          <ul class="mb-5">
+            <li class="font-weight-bold">
+              URL
+            </li>
+            <p>/api/popular/categories</p>
+            <li class="font-weight-bold">
+              Method:
+            </li>
+            <p style="color: salmon">GET</p>
+          </ul>
           
           
           <h2 class="font-weight-bold">Get List of Categories</h2>

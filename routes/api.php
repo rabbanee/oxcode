@@ -34,8 +34,6 @@ Route::group(['middleware' => 'auth:api', 'verified'], function () {
 
 Route::get('email/verify/{id}',  [VerificationController::class, 'verify'])->name('verification.verify'); // Make sure to keep this as your route name
 
-Route::get('test');
-
 Route::get('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
 
 Route::apiResource('attractions', AttractionController::class);
@@ -45,6 +43,7 @@ Route::post('attractions/search', [AttractionController::class, 'search']);
 Route::prefix('popular')->group(function () {
     Route::get('attractions', [AttractionController::class, 'popular'])->name('popular.attractions');
     Route::get('cities', [CityController::class, 'popular'])->name('popular.cities');
+    Route::get('categories', [CategoryController::class, 'popular'])->name('popular.categories');
 });
 
 Route::prefix('category')->group(function () {
