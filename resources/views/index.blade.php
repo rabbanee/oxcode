@@ -112,7 +112,7 @@
             <li class="font-weight-bold">
               URL
             </li>
-            <p>/api/attracions/search</p>
+            <p>/api/attractions/search</p>
             <li class="font-weight-bold">
               Method:
             </li>

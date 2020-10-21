@@ -6,9 +6,7 @@ use App\Http\Resources\Attraction\ListResource;
 use App\Models\Attraction;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Attraction\DetailResource;
-use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class AttractionController extends Controller
 {
@@ -85,6 +83,7 @@ class AttractionController extends Controller
             'longitude' => 'required_if:sort_by,distance',
             'latitude' => 'required_if:sort_by,distance',
         ];
+
         // Attractions Sort By 
         if ($request->has('sort_by')) {
             switch ($request->input('sort_by')) {

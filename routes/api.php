@@ -7,8 +7,7 @@ use App\Http\Controllers\API\ImageController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\ForgotPassword;
 use App\Http\Controllers\API\PasswordResetController;
-use App\Http\Controllers\VerificationController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\API\VerificationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'auth'], function () {
     Route::post('login', [AuthController::class, 'login'])->middleware('verified');
     Route::post('register', [AuthController::class, 'register']);
+    Route::get('register/activate/{token}', [VerificationController::class, 'verify']);
 
     Route::group(['middleware' => 'auth:api', 'verified'], function () {
         Route::get('logout', [AuthController::class, 'logout']);
@@ -32,17 +32,13 @@ Route::group(['prefix' => 'auth'], function () {
     });
 });
 
-Route::post('password/forgot', [ForgotPassword::class, 'forgot']);
-Route::post('password/reset', [ForgotPassword::class, 'reset']);
-
-
 Route::group(['namespace' => 'Auth', 'middleware' => 'api', 'prefix' => 'password'], function () {
     Route::post('create', [PasswordResetController::class, 'create']);
     Route::get('find/{token}', [PasswordResetController::class, 'find']);
     Route::post('reset', [PasswordResetController::class, 'reset']);
 });
 
-Route::get('email/verify/{id}',  [VerificationController::class, 'verify'])->name('verification.verify'); 
+Route::get('email/verify/{id}',  [VerificationController::class, 'verify'])->name('verification.verify');
 Route::get('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
 
 Route::apiResource('attractions', AttractionController::class);
