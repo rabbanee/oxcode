@@ -38,6 +38,9 @@ class TravelerReviewController extends Controller
     {
         try {
             $input = $request->only(['review', 'rating', 'user_id', 'attraction_id']);
+            if (TravelerReview::where('user_id', $request->user_id)->where('attraction_id', $request->attraction_id)->exists()) {
+                return response('error', 401);
+            }
             $query = TravelerReview::create($input);
             return $query;
         } catch (\Throwable $th) {
@@ -53,7 +56,7 @@ class TravelerReviewController extends Controller
      */
     public function show($id)
     {
-        //
+        return TravelerReview::findOrFail($id);
     }
 
     /**
