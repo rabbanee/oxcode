@@ -20,7 +20,7 @@ class VerificationController extends Controller
       $user->markEmailAsVerified();
     }
 
-    return 'success';
+    return redirect('https://github.com/squest');
   }
 
   public function resend(Request $request)

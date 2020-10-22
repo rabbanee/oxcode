@@ -170,6 +170,69 @@
               </li>
             </ul>
           </ul>
+          
+          <h2 class="font-weight-bold">Get detail user</h2>
+          <p>Get detail user user</p>
+          <ul class="mb-5">
+            <li class="font-weight-bold">
+              URL
+            </li>
+            <p>/api/auth/user</p>
+            <li class="font-weight-bold">
+              Method:
+            </li>
+            <p style="color: salmon">GET</p>
+            <li class="font-weight-bold">
+              Header:
+            </li>
+            <ul>
+              <li>
+                JSON: <code style="color: salmon">{ "Authorization": "Bearer {access_token}"}</code>
+              </li>
+            </ul>
+          </ul>
+          
+          <h2 class="font-weight-bold">Logout</h2>
+          <p>Logout user</p>
+          <ul class="mb-5">
+            <li class="font-weight-bold">
+              URL
+            </li>
+            <p>/api/auth/logout</p>
+            <li class="font-weight-bold">
+              Method:
+            </li>
+            <p style="color: salmon">GET</p>
+            <li class="font-weight-bold">
+              Header:
+            </li>
+            <ul>
+              <li>
+                JSON: <code style="color: salmon">{ "Authorization": "Bearer {access_token}"}</code>
+              </li>
+            </ul>
+          </ul>
+          
+          <h2 class="font-weight-bold">Forgot Password</h2>
+          <p>Send reset link to email user</p>
+          <ul class="mb-5">
+            <li class="font-weight-bold">
+              URL
+            </li>
+            <p>/api/password/create</p>
+            <li class="font-weight-bold">
+              Method:
+            </li>
+            <p style="color: salmon">POST</p>
+            <li class="font-weight-bold">
+              Body:
+            </li>
+            <ul>
+              <li>
+                JSON: <code style="color: salmon">{ "email": string }</code>
+              </li>
+            </ul>
+          </ul>
         </div>
       </div>
     </div>

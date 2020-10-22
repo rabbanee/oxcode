@@ -24,7 +24,9 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'auth'], function () {
     Route::post('login', [AuthController::class, 'login'])->middleware('verified');
     Route::post('register', [AuthController::class, 'register']);
-    Route::get('register/activate/{token}', [VerificationController::class, 'verify']);
+
+    Route::get('register/verify/{id}',  [VerificationController::class, 'verify'])->name('verification.verify');
+    Route::get('register/resend', [VerificationController::class, 'resend'])->name('verification.resend');
 
     Route::group(['middleware' => 'auth:api', 'verified'], function () {
         Route::get('logout', [AuthController::class, 'logout']);
@@ -37,9 +39,6 @@ Route::group(['namespace' => 'Auth', 'middleware' => 'api', 'prefix' => 'passwor
     Route::get('find/{token}', [PasswordResetController::class, 'find']);
     Route::post('reset', [PasswordResetController::class, 'reset']);
 });
-
-Route::get('email/verify/{id}',  [VerificationController::class, 'verify'])->name('verification.verify');
-Route::get('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
 
 Route::apiResource('attractions', AttractionController::class);
 

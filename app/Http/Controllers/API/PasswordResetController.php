@@ -80,7 +80,7 @@ class PasswordResetController extends Controller
     {
         $request->validate([
             'email' => 'required|string|email',
-            'password' => 'required|string|confirmed',
+            'password' => 'required|string|confirmed|min:8',
             'token' => 'required|string'
         ]);
         $passwordReset = PasswordReset::where([
