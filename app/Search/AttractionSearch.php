@@ -12,13 +12,6 @@ class AttractionSearch
   {
     $attraction = (new Attraction)->newQuery();
 
-    $rules = [
-      'categories' => 'array',
-      'hours_of_operation' => 'array',
-      'longitude' => 'required_if:sort_by,distance',
-      'latitude' => 'required_if:sort_by,distance',
-    ];
-
     // Attractions Sort By 
     if ($filters->has('sort_by')) {
       switch ($filters->input('sort_by')) {
@@ -36,7 +29,7 @@ class AttractionSearch
 
           $attraction = Attraction::distance($latitude, $longitude);
 
-          $attraction->orderBy('distance', 'DESC');
+          $attraction->orderBy('distance', 'ASC');
           break;
 
         default:
@@ -79,12 +72,6 @@ class AttractionSearch
         });
       });
     }
-
-    $customMessages = [
-      'hours_of_operation.array' => 'The :attribute field must be an object.'
-    ];
-
-    $filters->validate($rules, $customMessages);
     return ListResource::collection($attraction->get());
   }
 }

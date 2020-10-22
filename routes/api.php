@@ -5,8 +5,8 @@ use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\CityController;
 use App\Http\Controllers\API\ImageController;
 use App\Http\Controllers\API\AuthController;
-use App\Http\Controllers\API\ForgotPassword;
 use App\Http\Controllers\API\PasswordResetController;
+use App\Http\Controllers\API\TravelerReviewController;
 use App\Http\Controllers\API\VerificationController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +41,8 @@ Route::group(['namespace' => 'Auth', 'middleware' => 'api', 'prefix' => 'passwor
 });
 
 Route::apiResource('attractions', AttractionController::class);
+
+Route::apiResource('reviews', TravelerReviewController::class)->middleware(['verified', 'auth:api']);
 
 Route::post('attractions/search', [AttractionController::class, 'search']);
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Resources\Attraction\ListResource;
 use App\Models\Attraction;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SearchAttraction;
 use App\Http\Resources\Attraction\DetailResource;
 use App\Search\AttractionSearch;
 use Illuminate\Http\Request;
@@ -75,7 +76,7 @@ class AttractionController extends Controller
         return ListResource::collection($attractions);
     }
 
-    public function search(Request $request)
+    public function search(SearchAttraction $request)
     {
         return AttractionSearch::apply($request);
     }

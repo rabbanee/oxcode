@@ -43,21 +43,8 @@ class Attraction extends Model
         return $this->morphMany('App\Models\Image', 'imageable');
     }
 
-    public function sortBy($latitude, $longitude, $radius)
+    public function travelerReview()
     {
-        return $this->select('spaces.*')
-            ->selectRaw(
-                '( 6371 *
-                    acos( cos( radians(?) ) *
-                        cos( radians( latitude ) ) *
-                        cos( radians( longitude ) - radians(?)) +
-                        sin( radians(?) ) *
-                        sin( radians( latitude ) )
-                    )
-                ) AS distance',
-                [$latitude, $longitude, $latitude]
-            )
-            ->havingRaw("distance < ?", [$radius])
-            ->orderBy('distance', 'asc');
+        return $this->hasMany('App\Models\TravelerReview');
     }
 }
