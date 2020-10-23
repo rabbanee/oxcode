@@ -38,7 +38,7 @@ class AuthController extends Controller
             $avatar = Avatar::create($user->name)->getImageObject()->encode('png');
             Storage::put('public/images/avatars/' . $user->id . '/avatar.png', (string) $avatar);
 
-            $user->image()->create(['path' => "$user->id/avatar.png", 'thumbnail' => 'true']);
+            $user->image()->create(['path' => "avatars/$user->id/avatar.png", 'thumbnail' => 'true']);
 
             return response()->json([
                 'message' => 'Successfully created user!'
