@@ -52,11 +52,6 @@ Route::prefix('popular')->group(function () {
     Route::get('categories', [CategoryController::class, 'popular'])->name('popular.categories');
 });
 
-Route::prefix('category')->group(function () {
-    Route::get('attractions', [AttractionController::class, 'popular'])->name('popular.attractions');
-    Route::get('cities', [CityController::class, 'popular'])->name('popular.cities');
-});
-
 Route::get('categories', [CategoryController::class, 'index']);
 
 Route::get('images/{id}', [ImageController::class, 'index'])->name('image.index');
