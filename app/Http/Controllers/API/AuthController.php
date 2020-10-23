@@ -4,10 +4,13 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterAuth;
+use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
+use Avatar;
 
 class AuthController extends Controller
 {
@@ -23,11 +26,20 @@ class AuthController extends Controller
     public function register(RegisterAuth $request)
     {
         try {
-            User::create([
+            $user = new User([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => bcrypt($request->password)
-            ])->sendEmailVerificationNotification();
+            ]);
+
+            $user->save();
+            $user->sendEmailVerificationNotification();
+
+            $avatar = Avatar::create($user->name)->getImageObject()->encode('png');
+            Storage::put('public/images/avatars/' . $user->id . '/avatar.png', (string) $avatar);
+
+            $user->image()->create(['path' => "$user->id/avatar.png", 'thumbnail' => 'true']);
+
             return response()->json([
                 'message' => 'Successfully created user!'
             ], 201);
@@ -92,6 +104,6 @@ class AuthController extends Controller
      */
     public function user(Request $request)
     {
-        return response()->json($request->user());
+        return new UserResource($request->user());
     }
 }

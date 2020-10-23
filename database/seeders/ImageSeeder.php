@@ -17,7 +17,7 @@ class ImageSeeder extends Seeder
         DB::table('images')->insert(
             [
                 [
-                    'url' => 'attractions/1.jpg',
+                    'path' => 'attractions/1.jpg',
                     'imageable_id' => '1',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => true,
@@ -25,7 +25,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/2.png',
+                    'path' => 'attractions/2.png',
                     'imageable_id' => '1',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -33,7 +33,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/dufan.jpg',
+                    'path' => 'attractions/dufan.jpg',
                     'imageable_id' => '1',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -41,7 +41,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/bromo.jpg',
+                    'path' => 'attractions/bromo.jpg',
                     'imageable_id' => '2',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => true,
@@ -49,7 +49,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/kuta.png',
+                    'path' => 'attractions/kuta.png',
                     'imageable_id' => '3',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -57,7 +57,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/kuta.jpg',
+                    'path' => 'attractions/kuta.jpg',
                     'imageable_id' => '3',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -65,7 +65,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/Kuta-Beach-Surfing.jpg',
+                    'path' => 'attractions/Kuta-Beach-Surfing.jpg',
                     'imageable_id' => '3',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => true,
@@ -73,7 +73,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/Kuta-beach-Sunset.jpg',
+                    'path' => 'attractions/Kuta-beach-Sunset.jpg',
                     'imageable_id' => '3',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -81,7 +81,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/borobudur-temple.jpg',
+                    'path' => 'attractions/borobudur-temple.jpg',
                     'imageable_id' => '4',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => true,
@@ -89,7 +89,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/borobudur-temple-2.jpg',
+                    'path' => 'attractions/borobudur-temple-2.jpg',
                     'imageable_id' => '4',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -97,7 +97,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/borobudur-temple-3.jpg',
+                    'path' => 'attractions/borobudur-temple-3.jpg',
                     'imageable_id' => '4',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -105,7 +105,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/borobudur-temple-4.jpg',
+                    'path' => 'attractions/borobudur-temple-4.jpg',
                     'imageable_id' => '4',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -113,7 +113,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/tana-toraja.jpg',
+                    'path' => 'attractions/tana-toraja.jpg',
                     'imageable_id' => '5',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => true,
@@ -121,7 +121,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/tana-toraja-2.jpg',
+                    'path' => 'attractions/tana-toraja-2.jpg',
                     'imageable_id' => '5',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -129,7 +129,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/tana-toraja-3.jpg',
+                    'path' => 'attractions/tana-toraja-3.jpg',
                     'imageable_id' => '5',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -137,7 +137,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/lake-toba.jpg',
+                    'path' => 'attractions/lake-toba.jpg',
                     'imageable_id' => '6',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -145,7 +145,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/lake-toba-2.jpg',
+                    'path' => 'attractions/lake-toba-2.jpg',
                     'imageable_id' => '6',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => true,
@@ -153,7 +153,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/lake-toba-3.jpg',
+                    'path' => 'attractions/lake-toba-3.jpg',
                     'imageable_id' => '6',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -161,7 +161,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/lake-toba-4.jpg',
+                    'path' => 'attractions/lake-toba-4.jpg',
                     'imageable_id' => '6',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -169,7 +169,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/raja-ampat.jpg',
+                    'path' => 'attractions/raja-ampat.jpg',
                     'imageable_id' => '7',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => true,
@@ -177,7 +177,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/raja-ampat-2.jpg',
+                    'path' => 'attractions/raja-ampat-2.jpg',
                     'imageable_id' => '7',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -185,7 +185,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/raja-ampat-3.jpg',
+                    'path' => 'attractions/raja-ampat-3.jpg',
                     'imageable_id' => '7',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -193,7 +193,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/mount-rinjani.jpg',
+                    'path' => 'attractions/mount-rinjani.jpg',
                     'imageable_id' => '8',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => true,
@@ -201,7 +201,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/mount-rinjani-2.jpg',
+                    'path' => 'attractions/mount-rinjani-2.jpg',
                     'imageable_id' => '8',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -209,7 +209,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/mount-rinjani-3.jpg',
+                    'path' => 'attractions/mount-rinjani-3.jpg',
                     'imageable_id' => '8',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -217,7 +217,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/mount-rinjani-4.jpg',
+                    'path' => 'attractions/mount-rinjani-4.jpg',
                     'imageable_id' => '8',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -225,7 +225,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/mount-rinjani-5.jpg',
+                    'path' => 'attractions/mount-rinjani-5.jpg',
                     'imageable_id' => '8',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -233,7 +233,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/mount-rinjani-6.jpg',
+                    'path' => 'attractions/mount-rinjani-6.jpg',
                     'imageable_id' => '8',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -241,7 +241,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/banda-islands.jpg',
+                    'path' => 'attractions/banda-islands.jpg',
                     'imageable_id' => '9',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => true,
@@ -249,7 +249,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/banda-islands-2.jpg',
+                    'path' => 'attractions/banda-islands-2.jpg',
                     'imageable_id' => '9',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -257,7 +257,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/banda-islands-3.jpg',
+                    'path' => 'attractions/banda-islands-3.jpg',
                     'imageable_id' => '9',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -265,7 +265,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/banda-islands-4.jpg',
+                    'path' => 'attractions/banda-islands-4.jpg',
                     'imageable_id' => '9',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -273,7 +273,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/jatiluwih-rice-terrace.jpg',
+                    'path' => 'attractions/jatiluwih-rice-terrace.jpg',
                     'imageable_id' => '10',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => true,
@@ -281,7 +281,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/jatiluwih-rice-terrace-2.jpg',
+                    'path' => 'attractions/jatiluwih-rice-terrace-2.jpg',
                     'imageable_id' => '10',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -289,7 +289,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/jatiluwih-rice-terrace-3.jpg',
+                    'path' => 'attractions/jatiluwih-rice-terrace-3.jpg',
                     'imageable_id' => '10',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -297,7 +297,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'attractions/jatiluwih-rice-terrace-4.jpg',
+                    'path' => 'attractions/jatiluwih-rice-terrace-4.jpg',
                     'imageable_id' => '10',
                     'imageable_type' => 'App\Models\Attraction',
                     'thumbnail' => false,
@@ -305,7 +305,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'cities/jakarta.jpg',
+                    'path' => 'cities/jakarta.jpg',
                     'imageable_id' => '1',
                     'imageable_type' => 'App\Models\City',
                     'thumbnail' => true,
@@ -313,7 +313,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'cities/bali.jpg',
+                    'path' => 'cities/bali.jpg',
                     'imageable_id' => '3',
                     'imageable_type' => 'App\Models\City',
                     'thumbnail' => true,
@@ -321,7 +321,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'cities/jogja.jpg',
+                    'path' => 'cities/jogja.jpg',
                     'imageable_id' => '4',
                     'imageable_type' => 'App\Models\City',
                     'thumbnail' => true,
@@ -329,7 +329,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'cities/makale.jpg',
+                    'path' => 'cities/makale.jpg',
                     'imageable_id' => '5',
                     'imageable_type' => 'App\Models\City',
                     'thumbnail' => true,
@@ -337,7 +337,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'cities/pemantang-siantar.jpg',
+                    'path' => 'cities/pemantang-siantar.jpg',
                     'imageable_id' => '6',
                     'imageable_type' => 'App\Models\City',
                     'thumbnail' => true,
@@ -345,7 +345,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'cities/waisai.jpg',
+                    'path' => 'cities/waisai.jpg',
                     'imageable_id' => '7',
                     'imageable_type' => 'App\Models\City',
                     'thumbnail' => true,
@@ -353,7 +353,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'cities/east-lombok.jpg',
+                    'path' => 'cities/east-lombok.jpg',
                     'imageable_id' => '8',
                     'imageable_type' => 'App\Models\City',
                     'thumbnail' => true,
@@ -361,7 +361,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'cities/central-maluku.jpg',
+                    'path' => 'cities/central-maluku.jpg',
                     'imageable_id' => '9',
                     'imageable_type' => 'App\Models\City',
                     'thumbnail' => true,
@@ -369,7 +369,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'categories/mountain.png',
+                    'path' => 'categories/mountain.png',
                     'imageable_id' => '1',
                     'imageable_type' => 'App\Models\Category',
                     'thumbnail' => true,
@@ -377,7 +377,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'categories/waterfall.png',
+                    'path' => 'categories/waterfall.png',
                     'imageable_id' => '2',
                     'imageable_type' => 'App\Models\Category',
                     'thumbnail' => true,
@@ -385,7 +385,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'categories/museum.png',
+                    'path' => 'categories/museum.png',
                     'imageable_id' => '3',
                     'imageable_type' => 'App\Models\Category',
                     'thumbnail' => true,
@@ -393,7 +393,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'categories/lake.png',
+                    'path' => 'categories/lake.png',
                     'imageable_id' => '4',
                     'imageable_type' => 'App\Models\Category',
                     'thumbnail' => true,
@@ -401,7 +401,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'categories/recreation.png',
+                    'path' => 'categories/recreation.png',
                     'imageable_id' => '5',
                     'imageable_type' => 'App\Models\Category',
                     'thumbnail' => true,
@@ -409,7 +409,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'categories/fruits_garden.png',
+                    'path' => 'categories/fruits_garden.png',
                     'imageable_id' => '6',
                     'imageable_type' => 'App\Models\Category',
                     'thumbnail' => true,
@@ -417,7 +417,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'categories/zoo.png',
+                    'path' => 'categories/zoo.png',
                     'imageable_id' => '7',
                     'imageable_type' => 'App\Models\Category',
                     'thumbnail' => true,
@@ -425,7 +425,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'categories/waterpark.png',
+                    'path' => 'categories/waterpark.png',
                     'imageable_id' => '8',
                     'imageable_type' => 'App\Models\Category',
                     'thumbnail' => true,
@@ -433,7 +433,7 @@ class ImageSeeder extends Seeder
                     'updated_at' => now(),
                 ],
                 [
-                    'url' => 'categories/flowers_garden.png',
+                    'path' => 'categories/flowers_garden.png',
                     'imageable_id' => '9',
                     'imageable_type' => 'App\Models\Category',
                     'thumbnail' => true,

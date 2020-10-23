@@ -12,8 +12,6 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $dates = ['deleted_at'];
-
     /**
      * The attributes that are mass assignable.
      *
@@ -23,6 +21,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'avatar',
     ];
 
     /**
@@ -47,5 +46,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function travelerReview()
     {
         return $this->hasMany('App\Models\TravelerReview');
+    }
+
+    public function image()
+    {
+        return $this->morphOne('App\Models\Image', 'imageable');
     }
 };

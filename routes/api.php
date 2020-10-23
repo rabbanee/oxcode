@@ -60,3 +60,5 @@ Route::prefix('category')->group(function () {
 Route::get('categories', [CategoryController::class, 'index']);
 
 Route::get('images/{id}', [ImageController::class, 'index'])->name('image.index');
+
+Route::get('images/user/{id}', [ImageController::class, 'user'])->name('image.user');
