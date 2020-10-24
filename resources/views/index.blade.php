@@ -302,11 +302,44 @@
             </li>
             <p style="color: salmon">PUT</p>
             <li class="font-weight-bold">
+              Header:
+            </li>
+            <ul>
+                JSON: <code style="color: salmon">{ "Authorization": "Bearer {access_token}"}</code>
+            </ul>
+            <li class="font-weight-bold">
               Body:
             </li>
             <ul>
               <li>
-                JSON: <code style="color: salmon">{ "email": string, "password": string, "token": string }</code>
+                JSON: <code style="color: salmon">{ "email": string, "password": string, "password_confirmation": string,"token": string }</code>
+              </li>
+            </ul>
+          </ul>
+
+          <h2 class="font-weight-bold">Add a Review</h2>
+          <p>Add a review.</p>
+          <ul class="mb-5">
+            <li class="font-weight-bold">
+              URL
+            </li>
+            <p>/api/reviews</p>
+            <li class="font-weight-bold">
+              Method:
+            </li>
+            <p style="color: salmon">POST</p>
+            <li class="font-weight-bold">
+              Header:
+            </li>
+            <ul>
+                JSON: <code style="color: salmon">{ "Authorization": "Bearer {access_token}"}</code>
+            </ul>
+            <li class="font-weight-bold">
+              Body:
+            </li>
+            <ul>
+              <li>
+                JSON: <code style="color: salmon">{ "review": string, "rating": integer, "attraction_id": string }</code>
               </li>
             </ul>
           </ul>

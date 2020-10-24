@@ -11,7 +11,9 @@ class UserController extends Controller
 {
     public function update(UpdateUser $request)
     {
-        $user = User::select('id')->where('email', $request->input('email'))->get()[0]->id;
-        return $request->header('Authorization');
+        $user = User::findOrFail($request->user()->id);
+        $user->fill($request->all());
+        $user->update();
+        return $request->all();
     }
 }
