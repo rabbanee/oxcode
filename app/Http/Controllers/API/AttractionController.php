@@ -42,7 +42,6 @@ class AttractionController extends Controller
      */
     public function show(Attraction $attraction)
     {
-        // return $attraction->pinPoint;
         return new DetailResource($attraction);
     }
 

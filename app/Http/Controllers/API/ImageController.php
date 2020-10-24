@@ -13,7 +13,8 @@ class ImageController extends Controller
     public function index($id)
     {
         $image = Image::find($id);
-        $path = storage_path("app/public/images/$image->path");
+        // $path = storage_path("app/public/images/$image->path");
+        $path = Storage::disk('local')->path("public/images/$image->path");
         return response()->file($path);
     }
 }

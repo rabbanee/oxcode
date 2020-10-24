@@ -7,6 +7,7 @@ use App\Http\Controllers\API\ImageController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\PasswordResetController;
 use App\Http\Controllers\API\TravelerReviewController;
+use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\VerificationController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,11 +41,8 @@ Route::group(['namespace' => 'Auth', 'middleware' => 'api', 'prefix' => 'passwor
     Route::post('reset', [PasswordResetController::class, 'reset']);
 });
 
+Route::get('search/attractions', [AttractionController::class, 'search']);
 Route::apiResource('attractions', AttractionController::class);
-
-Route::apiResource('reviews', TravelerReviewController::class)->middleware(['verified', 'auth:api']);
-
-Route::post('attractions/search', [AttractionController::class, 'search']);
 
 Route::prefix('popular')->group(function () {
     Route::get('attractions', [AttractionController::class, 'popular'])->name('popular.attractions');
@@ -56,4 +54,7 @@ Route::get('categories', [CategoryController::class, 'index']);
 
 Route::get('images/{id}', [ImageController::class, 'index'])->name('image.index');
 
-Route::get('images/user/{id}', [ImageController::class, 'user'])->name('image.user');
+Route::middleware(['auth:api', 'verified'])->group(function () {
+    Route::put('users/update', [UserController::class, 'update']);
+    Route::apiResource('reviews', TravelerReviewController::class);
+});

@@ -91,8 +91,8 @@
             </li>
             <p style="color: salmon">GET</p>
           </ul>
-          
-          
+
+
           <h2 class="font-weight-bold">Get List of Categories</h2>
           <p>Get list categories</p>
           <ul class="mb-5">
@@ -105,18 +105,18 @@
             </li>
             <p style="color: salmon">GET</p>
           </ul>
-          
+
           <h2 class="font-weight-bold">Search Attractions</h2>
           <p>Get list attractions by multiple filters</p>
           <ul class="mb-5">
             <li class="font-weight-bold">
               URL
             </li>
-            <p>/api/attractions/search</p>
+            <p>/api/search/attractions</p>
             <li class="font-weight-bold">
               Method:
             </li>
-            <p style="color: salmon">POST</p>
+            <p style="color: salmon">GET</p>
             <li class="font-weight-bold">
               Body:
             </li>
@@ -127,7 +127,7 @@
               </li>
             </ul>
           </ul>
-          
+
           <h2 class="font-weight-bold">Register</h2>
           <p>Register user</p>
           <ul class="mb-5">
@@ -148,7 +148,28 @@
               </li>
             </ul>
           </ul>
-          
+
+          <h2 class="font-weight-bold">Resend Verification Email</h2>
+          <p>Resend verification email</p>
+          <ul class="mb-5">
+            <li class="font-weight-bold">
+              URL
+            </li>
+            <p>/api/auth/register/resend</p>
+            <li class="font-weight-bold">
+              Method:
+            </li>
+            <p style="color: salmon">GET</p>
+            <li class="font-weight-bold">
+              Body:
+            </li>
+            <ul>
+              <li>
+                JSON: <code style="color: salmon">{ "email": string }</code>
+              </li>
+            </ul>
+          </ul>
+
           <h2 class="font-weight-bold">Login</h2>
           <p>Login user</p>
           <ul class="mb-5">
@@ -170,7 +191,7 @@
               </li>
             </ul>
           </ul>
-          
+
           <h2 class="font-weight-bold">Get detail user</h2>
           <p>Get detail user user</p>
           <ul class="mb-5">
@@ -191,7 +212,7 @@
               </li>
             </ul>
           </ul>
-          
+
           <h2 class="font-weight-bold">Logout</h2>
           <p>Logout user</p>
           <ul class="mb-5">
@@ -212,8 +233,9 @@
               </li>
             </ul>
           </ul>
-          
-          <h2 class="font-weight-bold">Forgot Password</h2>
+          </ul>
+
+          <h2 class="font-weight-bold">Request for Forgot Password</h2>
           <p>Send reset link to email user</p>
           <ul class="mb-5">
             <li class="font-weight-bold">
@@ -230,6 +252,61 @@
             <ul>
               <li>
                 JSON: <code style="color: salmon">{ "email": string }</code>
+              </li>
+            </ul>
+          </ul>
+
+          <h2 class="font-weight-bold">Auth for Forgot Password</h2>
+          <p>Send reset link to email user</p>
+          <ul class="mb-5">
+            <li class="font-weight-bold">
+              URL
+            </li>
+            <p>/api/password/find/{token}</p>
+            <li class="font-weight-bold">
+              Method:
+            </li>
+            <p style="color: salmon">GET</p>
+          </ul>
+
+          <h2 class="font-weight-bold">Reset Password</h2>
+          <p>Send reset link to email user</p>
+          <ul class="mb-5">
+            <li class="font-weight-bold">
+              URL
+            </li>
+            <p>/api/password/reset</p>
+            <li class="font-weight-bold">
+              Method:
+            </li>
+            <p style="color: salmon">POST</p>
+            <li class="font-weight-bold">
+              Body:
+            </li>
+            <ul>
+              <li>
+                JSON: <code style="color: salmon">{ "email": string, "password": string, "token": string }</code>
+              </li>
+            </ul>
+          </ul>
+
+          <h2 class="font-weight-bold">Update User</h2>
+          <p>Update user.</p>
+          <ul class="mb-5">
+            <li class="font-weight-bold">
+              URL
+            </li>
+            <p>/api/users/update</p>
+            <li class="font-weight-bold">
+              Method:
+            </li>
+            <p style="color: salmon">PUT</p>
+            <li class="font-weight-bold">
+              Body:
+            </li>
+            <ul>
+              <li>
+                JSON: <code style="color: salmon">{ "email": string, "password": string, "token": string }</code>
               </li>
             </ul>
           </ul>
