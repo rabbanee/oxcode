@@ -116,7 +116,7 @@
             <li class="font-weight-bold">
               Method:
             </li>
-            <p style="color: salmon">GET</p>
+            <p style="color: salmon">POST</p>
             <li class="font-weight-bold">
               Body:
             </li>

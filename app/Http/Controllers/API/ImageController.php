@@ -10,11 +10,17 @@ use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
-    public function index($id)
+    public function show($id)
     {
-        $image = Image::find($id);
-        // $path = storage_path("app/public/images/$image->path");
-        $path = Storage::disk('local')->path("public/images/$image->path");
-        return response()->file($path);
+        try {
+            $image = Image::findOrFail($id);
+            $path = Storage::disk('local')->path("public/images/$image->path");
+            return response()->file($path);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'error' => true,
+                'message' => 'Image is not found'
+            ]);
+        }
     }
 }

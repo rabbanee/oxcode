@@ -22,9 +22,7 @@ class CreateAttractionsTable extends Migration
             $table->double('longitude');
             $table->double('latitude');
             $table->string('phone');
-            $table->integer('rating');
             $table->foreignId('category_id');
-            $table->foreignId('traveler_review_id');
             $table->boolean('popular');
             $table->timestamps();
         });

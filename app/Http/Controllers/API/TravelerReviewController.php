@@ -37,11 +37,14 @@ class TravelerReviewController extends Controller
     public function store(StoreTravelerReview $request)
     {
         try {
-            $input = $request->only(['review', 'rating', 'user_id', 'attraction_id']);
-            if (TravelerReview::where('user_id', $request->user_id)->where('attraction_id', $request->attraction_id)->exists()) {
-                return response('error', 401);
+            $input = $request->only(['review', 'rating', 'attraction_id']);
+            if (TravelerReview::where('user_id', $request->user()->id)->where('attraction_id', $request->attraction_id)->exists()) {
+                return response()->json([
+                    'error' => true,
+                    'message' => 'User has reviewed'
+                ], 422);
             }
-            $query = TravelerReview::create($input);
+            $query = TravelerReview::create(array_merge($input, ['user_id' => $request->user()->id]));
             return $query;
         } catch (\Throwable $th) {
             return $th;

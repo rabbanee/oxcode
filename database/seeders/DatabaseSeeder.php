@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             HoursOfOperationSeeder::class,
             TicketPriceSeeder::class,
+            UserSeeder::class,
+            TravelerReviewSeeder::class,
         ]);
     }
 }

@@ -41,7 +41,7 @@ Route::group(['namespace' => 'Auth', 'middleware' => 'api', 'prefix' => 'passwor
     Route::post('reset', [PasswordResetController::class, 'reset']);
 });
 
-Route::get('search/attractions', [AttractionController::class, 'search']);
+Route::post('search/attractions', [AttractionController::class, 'search']);
 Route::apiResource('attractions', AttractionController::class);
 
 Route::prefix('popular')->group(function () {
@@ -52,7 +52,7 @@ Route::prefix('popular')->group(function () {
 
 Route::get('categories', [CategoryController::class, 'index']);
 
-Route::get('images/{id}', [ImageController::class, 'index'])->name('image.index');
+Route::get('images/{id}', [ImageController::class, 'show'])->name('image.show');
 
 Route::middleware(['auth:api', 'verified'])->group(function () {
     Route::put('users/update', [UserController::class, 'update']);

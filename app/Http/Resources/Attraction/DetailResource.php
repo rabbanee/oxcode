@@ -4,8 +4,8 @@ namespace App\Http\Resources\Attraction;
 
 use App\Http\Resources\HoursOfOperationResource;
 use App\Http\Resources\ImageResource;
-use App\Http\Resources\PinPointResource;
 use App\Http\Resources\TicketPriceResource;
+use App\Http\Resources\TravelerReview\TravelerReviewResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class DetailResource extends JsonResource
@@ -32,6 +32,7 @@ class DetailResource extends JsonResource
                 "latitude" => $this->latitude,
                 "longitude" => $this->longitude,
             ],
+            'traveler_reviews' => TravelerReviewResource::collection($this->travelerReview),
             'hours_of_operation' => new HoursOfOperationResource($this->hoursOfOperation),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

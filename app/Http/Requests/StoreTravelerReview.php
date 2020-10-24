@@ -26,7 +26,7 @@ class StoreTravelerReview extends FormRequest
         return [
             'review' => 'required|string',
             'rating' => 'required|string',
-            'user_id' => 'required|string',
+            // 'user_id' => 'required|string',
             'attraction_id' => 'required|string',
         ];
     }
