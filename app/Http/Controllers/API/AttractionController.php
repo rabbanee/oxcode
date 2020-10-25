@@ -73,7 +73,7 @@ class AttractionController extends Controller
     {
         $attractions = Attraction::where('popular', true)->get();
 
-        return response()->successWithKey(ListResource::collection($attractions), 'attraction');
+        return response()->successWithKey(ListResource::collection($attractions), 'attractions');
     }
 
     public function search(SearchAttraction $request)
