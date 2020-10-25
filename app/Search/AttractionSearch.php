@@ -61,7 +61,7 @@ class AttractionSearch
                     $sorted = $result->sortByDesc(function ($attraction, $key) {
                         return $attraction->travelerReviews->avg('rating');
                     });
-                    return $sorted;
+                    return ListResource::collection($sorted);
                     break;
 
                 case 'distance':
