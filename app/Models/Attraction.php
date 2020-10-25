@@ -38,12 +38,12 @@ class Attraction extends Model
         return $this->hasOne('App\Models\TicketPrice');
     }
 
-    public function image()
+    public function images()
     {
         return $this->morphMany('App\Models\Image', 'imageable');
     }
 
-    public function travelerReview()
+    public function travelerReviews()
     {
         return $this->hasMany('App\Models\TravelerReview');
     }

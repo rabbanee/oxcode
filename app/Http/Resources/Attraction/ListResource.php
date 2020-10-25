@@ -16,8 +16,8 @@ class ListResource extends JsonResource
      */
     public function toArray($request)
     {
-        $images = ImageResource::collection($this->image->where('thumbnail', true));
-        $reviews = TravelerReviewResource::collection($this->travelerReview);
+        $images = ImageResource::collection($this->images->where('thumbnail', true));
+        $reviews = TravelerReviewResource::collection($this->travelerReviews);
 
         return [
             'id' => $this->id,

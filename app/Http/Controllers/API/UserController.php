@@ -12,8 +12,12 @@ class UserController extends Controller
     public function update(UpdateUser $request)
     {
         $user = User::findOrFail($request->user()->id);
+
+        // return $request->all();
+        if (request()->has('image')) {
+        }
         $user->fill($request->all());
         $user->update();
-        return $request->all();
+        return response()->success(compact('user'));
     }
 }

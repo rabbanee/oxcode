@@ -176,6 +176,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Laravolt\Avatar\ServiceProvider::class,
+        App\Providers\ResponseMacroServiceProvider::class,
 
     ],
 

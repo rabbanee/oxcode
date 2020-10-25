@@ -25,10 +25,10 @@ class UpdateUser extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'string|max:255|sometimes',
+            'name' => 'string|max:255|sometimes|min:3',
             'email' =>  'sometimes|max:255|string|email|unique:users,email,' . $this->user()->id,
-            'password' => 'confirmed|string|max:255|sometimes',
-            'image' => 'image|max:2048|sometimes',
+            'password' => 'confirmed|string|max:255|sometimes|min:8',
+            'image' => 'image|max:2048|sometimes|file',
         ];
     }
 }
