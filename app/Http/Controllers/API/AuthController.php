@@ -40,9 +40,7 @@ class AuthController extends Controller
 
             $user->image()->create(['path' => "avatars/$user->id/avatar.png", 'thumbnail' => 'true']);
 
-            return response()->json([
-                'message' => 'Successfully created user!'
-            ], 201);
+            return response()->successWithMessage('Successfully created user! please check your email for verification', 201);
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -70,13 +68,13 @@ class AuthController extends Controller
             if ($request->remember_me)
                 $token->expires_at = Carbon::now()->addWeeks(1);
             $token->save();
-            return response()->success([
-                'access_token' => $tokenResult->accessToken,
-                'token_type' => 'Bearer',
+            return response()->successWithKey([
+                'token' => $tokenResult->accessToken,
+                'type' => 'Bearer',
                 'expires_at' => Carbon::parse(
                     $tokenResult->token->expires_at
                 )->toDateTimeString()
-            ]);
+            ], 'personal_access_token');
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -90,10 +88,7 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         $request->user()->token()->revoke();
-        return response()->json([
-            'error' => false,
-            'message' => 'Successfully logged out'
-        ]);
+        return response()->successWithMessage('Successfully logged out');
     }
 
     /**
@@ -103,6 +98,6 @@ class AuthController extends Controller
      */
     public function user(Request $request)
     {
-        return new UserResource($request->user());
+        return response()->successWithKey(new UserResource($request->user()), 'user');
     }
 }

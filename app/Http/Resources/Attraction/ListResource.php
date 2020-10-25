@@ -27,8 +27,8 @@ class ListResource extends JsonResource
             'images' => $images,
             'rating' => $reviews->avg('rating'),
             'popular' => $this->popular,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'created_at' => $this->created_at->diffForHumans(),
+            'updated_at' => $this->updated_at->diffForHumans(),
         ];
     }
 }

@@ -12,6 +12,6 @@ class CityController extends Controller
     public function popular()
     {
         $cities = City::where('popular', true)->get();
-        return CityResource::collection($cities);
+        return response()->successWithKey(CityResource::collection($cities), 'cities');
     }
 }

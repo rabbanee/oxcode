@@ -12,12 +12,12 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return CategoryResource::collection($categories);
+        return response()->successWithKey(CategoryResource::collection($categories), 'categories');
     }
 
     public function popular()
     {
         $categories = Category::where('popular', true)->get();
-        return CategoryResource::collection($categories);
+        return response()->successWithKey(CategoryResource::collection($categories), 'categories');
     }
 }

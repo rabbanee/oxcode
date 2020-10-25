@@ -25,9 +25,7 @@ class PasswordResetController extends Controller
         ]);
         $user = User::where('email', $request->email)->first();
         if (!$user)
-            return response()->json([
-                'message' => 'We can\'t find a user with that e-mail address.'
-            ], 404);
+            return response()->error('Email is not found', 404);
         $passwordReset = PasswordReset::updateOrCreate(
             ['email' => $user->email],
             [
@@ -39,9 +37,7 @@ class PasswordResetController extends Controller
             $user->notify(
                 new PasswordResetRequest($passwordReset->token)
             );
-        return response()->json([
-            'message' => 'We have e-mailed your password reset link!'
-        ]);
+        return response()->successWithMessage('Email has been sent for resetting your password');
     }
     /**
      * Find token password reset
@@ -55,16 +51,13 @@ class PasswordResetController extends Controller
         $passwordReset = PasswordReset::where('token', $token)
             ->first();
         if (!$passwordReset)
-            return response()->json([
-                'message' => 'This password reset token is invalid.'
-            ], 404);
+            return response()->error('Reset password token is invalid!', 400);
+
         if (Carbon::parse($passwordReset->updated_at)->addMinutes(720)->isPast()) {
             $passwordReset->delete();
-            return response()->json([
-                'message' => 'This password reset token is invalid.'
-            ], 404);
+            return response()->error('Reset password token is invalid!', 400);
         }
-        return response()->json($passwordReset);
+        return response()->successWithKey($passwordReset, 'reset_password_token');
     }
     /**
      * Reset password
@@ -88,18 +81,14 @@ class PasswordResetController extends Controller
             ['email', $request->email]
         ])->first();
         if (!$passwordReset)
-            return response()->json([
-                'message' => 'This password reset token is invalid.'
-            ], 404);
+            return response()->error('Reset password token is invalid!', 400);
         $user = User::where('email', $passwordReset->email)->first();
         if (!$user)
-            return response()->json([
-                'message' => 'We can\'t find a user with that e-mail address.'
-            ], 404);
+            return response()->error('Email is not found', 404);
         $user->password = bcrypt($request->password);
         $user->save();
         $passwordReset->delete();
         $user->notify(new PasswordResetSuccess($passwordReset));
-        return response()->json($user);
+        return response()->successWithKey($user, 'user');
     }
 }

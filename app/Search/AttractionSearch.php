@@ -2,6 +2,7 @@
 
 namespace App\Search;
 
+use App\Http\Resources\Attraction\ListCollection;
 use App\Http\Resources\Attraction\ListResource;
 use App\Models\Attraction;
 use Illuminate\Http\Request;
@@ -57,11 +58,11 @@ class AttractionSearch
                     break;
 
                 case 'reviews':
-                    $result = ListResource::collection($attraction->get());
+                    $result = collect($attraction->get());
                     $sorted = $result->sortByDesc(function ($attraction, $key) {
                         return $attraction->travelerReviews->avg('rating');
                     });
-                    return ListResource::collection($sorted);
+                    return response()->successWithKey(ListResource::collection($sorted), 'attractions');
                     break;
 
                 case 'distance':
@@ -79,6 +80,6 @@ class AttractionSearch
             }
         }
 
-        return ListResource::collection($attraction->get());
+        return response()->successWithKey(ListResource::collection($attraction->get()), 'attractions');
     }
 }

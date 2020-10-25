@@ -20,7 +20,7 @@ class AttractionController extends Controller
     public function index()
     {
         $attractions = Attraction::paginate(12);
-        return ListResource::collection($attractions);
+        return response()->successWithKey(ListResource::collection($attractions), 'attractions');
     }
 
     /**
@@ -42,7 +42,8 @@ class AttractionController extends Controller
      */
     public function show(Attraction $attraction)
     {
-        return new DetailResource($attraction);
+        $attraction = new DetailResource($attraction);
+        return response()->successWithKey($attraction, 'attraction');
     }
 
     /**
@@ -72,7 +73,7 @@ class AttractionController extends Controller
     {
         $attractions = Attraction::where('popular', true)->get();
 
-        return ListResource::collection($attractions);
+        return response()->successWithKey(ListResource::collection($attractions), 'attraction');
     }
 
     public function search(SearchAttraction $request)
