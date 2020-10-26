@@ -18,13 +18,15 @@ class DetailResource extends JsonResource
      */
     public function toArray($request)
     {
+        $reviews = TravelerReviewResource::collection($this->travelerReviews);
+
         return [
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
             'city' => $this->city->name,
             'images' => ImageResource::collection($this->images),
-            'rating' => $this->rating,
+            'rating' => $reviews->avg('rating'),
             'phone' => $this->phone,
             'ticket_price' => new TicketPriceResource($this->ticketPrice),
             'address' => $this->address,
@@ -32,7 +34,7 @@ class DetailResource extends JsonResource
                 "latitude" => $this->latitude,
                 "longitude" => $this->longitude,
             ],
-            'traveler_reviews' => TravelerReviewResource::collection($this->travelerReviews),
+            'traveler_reviews' => $reviews,
             'hours_of_operation' => new HoursOfOperationResource($this->hoursOfOperation),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

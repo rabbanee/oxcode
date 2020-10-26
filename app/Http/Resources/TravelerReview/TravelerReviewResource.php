@@ -19,7 +19,7 @@ class TravelerReviewResource extends JsonResource
             'id' => $this->id,
             'review' => $this->review,
             'rating' => $this->rating,
-            'user_id' => new UserResource($this->user),
+            'user' => new UserResource($this->user),
         ];
     }
 }
