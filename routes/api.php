@@ -5,7 +5,7 @@ use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\CityController;
 use App\Http\Controllers\API\ImageController;
 use App\Http\Controllers\API\AuthController;
-use App\Http\Controllers\API\PasswordResetController;
+use App\Http\Controllers\API\ResetPasswordController;
 use App\Http\Controllers\API\TravelerReviewController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\VerificationController;
@@ -36,9 +36,9 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 Route::group(['namespace' => 'Auth', 'middleware' => 'api', 'prefix' => 'password'], function () {
-    Route::post('create', [PasswordResetController::class, 'create']);
-    Route::get('find/{token}', [PasswordResetController::class, 'find']);
-    Route::post('reset', [PasswordResetController::class, 'reset']);
+    Route::post('create', [ResetPasswordController::class, 'create']);
+    Route::get('find/{token}', [ResetPasswordController::class, 'find']);
+    Route::post('reset', [ResetPasswordController::class, 'reset']);
 });
 
 Route::post('search/attractions', [AttractionController::class, 'search']);

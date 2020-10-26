@@ -26,6 +26,7 @@ class ListResource extends JsonResource
             'city' => $this->city->name,
             'images' => $images,
             'rating' => $reviews->avg('rating'),
+            'total_reviews' => $reviews->count(),
             'popular' => $this->popular,
             'created_at' => $this->created_at->diffForHumans(),
             'updated_at' => $this->updated_at->diffForHumans(),
