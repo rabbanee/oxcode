@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTravelerReview;
+use App\Http\Resources\TravelerReview\TravelerReviewResource;
 use App\Models\TravelerReview;
 use Illuminate\Http\Request;
 
@@ -36,19 +37,19 @@ class TravelerReviewController extends Controller
      */
     public function store(StoreTravelerReview $request)
     {
-        try {
-            $input = $request->only(['review', 'rating', 'attraction_id']);
-            if (TravelerReview::where('user_id', $request->user()->id)->where('attraction_id', $request->attraction_id)->exists()) {
-                return response()->json([
-                    'error' => true,
-                    'message' => 'User has reviewed'
-                ], 422);
-            }
-            $query = TravelerReview::create(array_merge($input, ['user_id' => $request->user()->id]));
-            return $query;
-        } catch (\Throwable $th) {
-            return $th;
+        $input = $request->only(['review', 'rating', 'attraction_id']);
+
+        if (TravelerReview::where('user_id', $request->user()->id)->where('attraction_id', $request->attraction_id)->exists()) {
+            return response()->error('User has reviewed', 422);
         }
+
+        try {
+            TravelerReview::create(array_merge($input, ['user_id' => $request->user()->id]));
+        } catch (\Throwable $th) {
+            return response()->error('Failed to add review');
+        }
+
+        return response()->successWithMessage('Success to add review');
     }
 
     /**
@@ -59,7 +60,12 @@ class TravelerReviewController extends Controller
      */
     public function show($id)
     {
-        return TravelerReview::findOrFail($id);
+        try {
+            $review = TravelerReview::findOrFail($id);
+        } catch (\Throwable $th) {
+            return response()->error('Traveler Review is not found');
+        }
+        return response()->successWithKey(new TravelerReviewResource($review), 'traveler_review');
     }
 
     /**

@@ -40,8 +40,13 @@ class AttractionController extends Controller
      * @param  \App\Models\Attraction  $attraction
      * @return \Illuminate\Http\Response
      */
-    public function show(Attraction $attraction)
+    public function show($id)
     {
+        try {
+            $attraction = Attraction::find($id)->first();
+        } catch (\Throwable $th) {
+            return response()->error('Attraction is not found');
+        }
         $attraction = new DetailResource($attraction);
         return response()->successWithKey($attraction, 'attraction');
     }
