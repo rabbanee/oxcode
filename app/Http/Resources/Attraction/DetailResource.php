@@ -36,8 +36,6 @@ class DetailResource extends JsonResource
             ],
             'traveler_reviews' => $reviews,
             'hours_of_operation' => new HoursOfOperationResource($this->hoursOfOperation),
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ];
     }
 }

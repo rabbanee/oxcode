@@ -22,14 +22,11 @@ class ListResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'description' => $this->description,
             'city' => $this->city->name,
             'images' => $images,
             'rating' => $reviews->avg('rating'),
             'total_reviews' => $reviews->count(),
             'popular' => $this->popular,
-            'created_at' => $this->created_at->diffForHumans(),
-            'updated_at' => $this->updated_at->diffForHumans(),
         ];
     }
 }
