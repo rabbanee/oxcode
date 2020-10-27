@@ -14,37 +14,6 @@ class AttractionSearch
     {
         $attraction = (new Attraction)->newQuery();
 
-        // Attractions Sort By
-        if ($filters->has('sort_by')) {
-            switch ($filters->input('sort_by')) {
-                case 'alphabet':
-                    $attraction->orderBy('name');
-                    break;
-
-                case 'reviews':
-                    $result = collect($attraction->get());
-                    $sorted = $result->sortByDesc(function ($attraction, $key) {
-                        return $attraction->travelerReviews->avg('rating');
-                    });
-                    return response()->successWithKey(ListResource::collection($sorted), 'attractions');
-                    break;
-
-                case 'distance':
-                    $latitude = $filters->input('latitude');
-                    $longitude = $filters->input('longitude');
-
-                    $attraction = Attraction::distance($latitude, $longitude);
-
-                    // return $attraction->get();
-                    $attraction->orderBy('distance', 'ASC');
-                    break;
-
-                default:
-                    $attraction->orderBy('name');
-                    break;
-            }
-        }
-
         // Search for attractions based on their name.
         if ($filters->has('name')) {
             $name = $filters->input('name');
@@ -78,6 +47,36 @@ class AttractionSearch
                     }
                 });
             });
+        }
+
+        // Attractions Sort By
+        if ($filters->has('sort_by')) {
+            switch ($filters->input('sort_by')) {
+                case 'alphabet':
+                    $attraction->orderBy('name');
+                    break;
+
+                case 'reviews':
+                    $result = collect($attraction->get());
+                    $sorted = $result->sortByDesc(function ($attraction, $key) {
+                        return $attraction->travelerReviews->avg('rating');
+                    });
+                    return response()->successWithKey(ListResource::collection($sorted), 'attractions');
+                    break;
+
+                case 'distance':
+                    $latitude = $filters->input('latitude');
+                    $longitude = $filters->input('longitude');
+
+                    $attraction->distance($latitude, $longitude);
+
+                    $attraction->orderBy('distance', 'ASC');
+                    break;
+
+                default:
+                    $attraction->orderBy('name');
+                    break;
+            }
         }
 
         return response()->successWithKey(ListResource::collection($attraction->get()), 'attractions');
