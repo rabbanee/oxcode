@@ -18,10 +18,10 @@ class ImageController extends Controller
             return response()->error('Image is not found', StatusCode::NOT_FOUND);
         }
 
-        // $path = Storage::disk('local')->path("public/images/$image->path");
+        $path = Storage::disk('local')->path("public/images/$image->path");
         // $imageTools = ImageTools::make($path);
         // $imageTools->fit(300, 300, null, 'center');
 
-        return response()->file($image);
+        return response()->file($path);
     }
 }
