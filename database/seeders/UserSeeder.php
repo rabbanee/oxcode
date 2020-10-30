@@ -22,6 +22,12 @@ class UserSeeder extends Seeder
         'Arkan Adil Wicaksono',
         'Adzka Jaisy',
         'Muhammad Rifky',
+        'Muhammad Haikal Faruq',
+        'Ravy M',
+        'Fitiyan Ilham Wahyudi',
+        'Nashir Muhammad',
+        'Achmad Divo',
+        'Yusuf Edogawa',
     ];
     /**
      * Run the database seeds.

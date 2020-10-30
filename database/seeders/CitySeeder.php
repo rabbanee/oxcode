@@ -79,6 +79,20 @@ class CitySeeder extends Seeder
                     'created_at' => now(),
                     'updated_at' => now(),
                 ],
+                [
+                    'name' => 'Bandung',
+                    'description' => 'Bandung, capital of Indonesia’s West Java province, is a large city set amid volcanoes and tea plantations. It\'s known for colonial and art deco architecture, a lively, university-town feel and – thanks to its 768m elevation – relatively cool tropical weather.',
+                    'popular' => true,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ],
+                [
+                    'name' => 'Bogor',
+                    'description' => 'Bogor, Indonesia, is a city south of Jakarta on Java Island set against the volcanic backdrop of Mount Salak. The city’s frequent rain is ideal for the thousands of plant species in Kebun Raya Bogor, a venerable botanic garden founded in 1817 by the Dutch colonial government.',
+                    'popular' => false,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ],
             ]
         );
     }

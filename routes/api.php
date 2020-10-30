@@ -35,6 +35,9 @@ Route::middleware(['return-json'])->group(function () {
             Route::get('logout', [AuthController::class, 'logout']);
             Route::get('user', [AuthController::class, 'user']);
         });
+
+        Route::get('{provider}/redirect', [SocialAccountController::class, 'redirectToProvider']);
+        Route::get('{provider}/callback', [SocialAccountController::class, 'handleProviderCallback']);
     });
 
     Route::group(['namespace' => 'Auth', 'middleware' => 'api', 'prefix' => 'password'], function () {
@@ -61,6 +64,3 @@ Route::middleware(['return-json'])->group(function () {
         Route::apiResource('reviews', TravelerReviewController::class);
     });
 });
-
-Route::get('auth/{provider}/redirect', [SocialAccountController::class, 'redirectToProvider']);
-Route::get('auth/{provider}/callback', [SocialAccountController::class, 'handleProviderCallback']);

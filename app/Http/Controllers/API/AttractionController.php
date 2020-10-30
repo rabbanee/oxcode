@@ -43,7 +43,7 @@ class AttractionController extends Controller
     public function show($id)
     {
         try {
-            $attraction = Attraction::find($id)->first();
+            $attraction = Attraction::findOrFail($id);
         } catch (\Throwable $th) {
             return response()->error('Attraction is not found');
         }
