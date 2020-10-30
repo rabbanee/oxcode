@@ -28,7 +28,6 @@ class UserController extends Controller
             $path = $user->image->path;
             $image->save(Storage::disk('local')->path("public/images/$path"));
         }
-
         $user->fill($request->validated());
         $user->update();
         return response()->successWithKey(new UserResource($user), 'user');
