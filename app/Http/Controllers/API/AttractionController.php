@@ -20,6 +20,7 @@ class AttractionController extends Controller
     public function index()
     {
         $attractions = Attraction::paginate(15);
+        // Test gedung sate's image
         return response()->successWithKey(ListResource::collection($attractions), 'attractions');
     }
 
