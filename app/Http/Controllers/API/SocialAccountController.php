@@ -69,6 +69,7 @@ class SocialAccountController extends Controller
                 $user = new User([
                     'name' => $socialUser->getName(),
                     'email' => $socialUser->getEmail(),
+                    'email_verified_at' => now(),
                 ]);
 
                 $user->save();
