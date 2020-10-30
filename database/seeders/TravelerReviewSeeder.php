@@ -263,6 +263,30 @@ class TravelerReviewSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'review' => 'Comfortable fees,food facility price is also good,amazing rides, crowded during holidays,available for every generation human,rain dance is also good,black hole 90° and 45° are very good.',
+                'rating' => 5,
+                'user_id' => rand(1, 18),
+                'attraction_id' => '16',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'review' => 'This swimming pool have several pools and slides. The selection is varies from baby/toddlers, teenager up to adult. There is restaurant to order drinks and food (rumah air) inside the complex. The water maintenance should be improve though. I go there on weekdays where the pool is not too crowded, the water is dirty.',
+                'rating' => 3,
+                'user_id' => rand(1, 18),
+                'attraction_id' => '16',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'review' => 'Water kingdom is a good place to have fun especially with your family and friends. Located in Cileungsi, Bogor, Jawa Barat. It\'s a 1 hour drive (20 km) from Cibubur Toll Exit. Entrance fee is affordable for everyone. The food they sell here at reasonable cost.',
+                'rating' => 4,
+                'user_id' => rand(1, 18),
+                'attraction_id' => '16',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }

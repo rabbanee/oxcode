@@ -120,6 +120,13 @@ class TicketPriceSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'attraction_id' => 15,
+                'weekday' =>  25000,
+                'weekend' => 30000,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }

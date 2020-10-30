@@ -120,6 +120,13 @@ class HoursOfOperationSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'attraction_id' => '16',
+                'from' => '09:00',
+                'to' => '16:00',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }
