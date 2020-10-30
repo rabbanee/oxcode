@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\StatusCode;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Response;
 
@@ -24,7 +25,7 @@ class ResponseMacroServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Response::macro('success', function ($data, $status = 200) {
+        Response::macro('success', function ($data, $status = StatusCode::OK) {
             $response = [
                 'error' => false,
                 'data' => $data,
@@ -32,7 +33,7 @@ class ResponseMacroServiceProvider extends ServiceProvider
             return Response::json($response, $status);
         });
 
-        Response::macro('successWithMessage', function ($message, $status = 200) {
+        Response::macro('successWithMessage', function ($message, $status = StatusCode::OK) {
             $response = [
                 'error' => false,
                 'message' => $message,
@@ -40,7 +41,7 @@ class ResponseMacroServiceProvider extends ServiceProvider
             return Response::json($response, $status);
         });
 
-        Response::macro('successWithKey', function ($data, $key = 'data', $status = 200) {
+        Response::macro('successWithKey', function ($data, $key = 'data', $status = StatusCode::OK) {
             $response = [
                 'error' => false,
                 "$key" => $data,
@@ -48,7 +49,7 @@ class ResponseMacroServiceProvider extends ServiceProvider
             return Response::json($response, $status);
         });
 
-        Response::macro('error', function ($message, $status = 400) {
+        Response::macro('error', function ($message, $status = StatusCode::BAD_REQUEST) {
             return Response::json([
                 'error' => true,
                 'message' => $message,

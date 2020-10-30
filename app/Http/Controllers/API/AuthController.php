@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginAuth;
 use App\Http\Requests\RegisterAuth;
 use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\StatusCode;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Avatar;
@@ -40,9 +42,9 @@ class AuthController extends Controller
 
             $user->image()->create(['path' => "avatars/$user->id/avatar.png", 'thumbnail' => 'true']);
 
-            return response()->successWithMessage('Successfully created user! please check your email for verification', 201);
+            return response()->successWithMessage('Successfully created user! please check your email for verification', StatusCode::CREATED);
         } catch (\Throwable $th) {
-            throw $th;
+            return response()->error('Failed created user!', StatusCode::INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -56,12 +58,12 @@ class AuthController extends Controller
      * @return [string] token_type
      * @return [string] expires_at
      */
-    public function login(Request $request)
+    public function login(LoginAuth $request)
     {
         try {
             $credentials = request(['email', 'password']);
             if (!Auth::attempt($credentials))
-                return response()->error('Unauthorized', 401);
+                return response()->error('Email or password is not correct', StatusCode::UNAUTHORIZED);
             $user = $request->user();
             $tokenResult = $user->createToken('Personal Access Token');
             $token = $tokenResult->token;
@@ -76,7 +78,7 @@ class AuthController extends Controller
                 )->toDateTimeString()
             ], 'personal_access_token');
         } catch (\Throwable $th) {
-            throw $th;
+            return response()->error('Failed to login!', StatusCode::INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -87,7 +89,11 @@ class AuthController extends Controller
      */
     public function logout(Request $request)
     {
-        $request->user()->token()->revoke();
+        try {
+            $request->user()->token()->revoke();
+        } catch (\Throwable $th) {
+            return response()->error('Failed to logout!', StatusCode::INTERNAL_SERVER_ERROR);
+        }
         return response()->successWithMessage('Successfully logged out');
     }
 

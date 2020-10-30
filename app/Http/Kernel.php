@@ -42,6 +42,8 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            // Json Middleware
+            \App\Http\Middleware\JsonMiddleware::class,
         ],
     ];
 
@@ -61,7 +63,20 @@ class Kernel extends HttpKernel
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'verified' => \App\Http\Middleware\EnsureApiEmailIsVerified::class,
+        'return-json' => \App\Http\Middleware\JsonMiddleware::class,
+    ];
+
+    /**
+     * The priority-sorted list of middleware.
+     *
+     * This forces the listed middleware to always be in the given order.
+     *
+     * @var array
+     */
+    protected $middlewarePriority = [
+        // Put the JSON Middleware first
+        \App\Http\Middleware\JsonMiddleware::class,
+        \App\Http\Middleware\EnsureApiEmailIsVerified::class
     ];
 }

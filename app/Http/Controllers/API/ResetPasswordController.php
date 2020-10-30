@@ -7,6 +7,7 @@ use App\Models\ResetPassword;
 use App\Models\User;
 use App\Notifications\ResetPasswordRequest;
 use App\Notifications\ResetPasswordSuccess;
+use App\StatusCode;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class ResetPasswordController extends Controller
         ]);
         $user = User::where('email', $request->email)->first();
         if (!$user)
-            return response()->error('Email is not found', 404);
+            return response()->error('Email is not found', StatusCode::NOT_FOUND);
         $resetPassword = ResetPassword::updateOrCreate(
             ['email' => $user->email],
             [
@@ -52,12 +53,13 @@ class ResetPasswordController extends Controller
         $resetPassword = ResetPassword::where('token', $token)
             ->first();
         if (!$resetPassword)
-            return response()->error('Reset password token is invalid!', 400);
+            return response()->error('Reset password token is invalid!');
 
         if (Carbon::parse($resetPassword->updated_at)->addMinutes(720)->isPast()) {
             $resetPassword->delete();
-            return response()->error('Reset password token is invalid!', 400);
+            return response()->error('Reset password token is invalid!');
         }
+
         return response()->successWithKey($resetPassword, 'reset_password_token');
     }
 
@@ -83,10 +85,10 @@ class ResetPasswordController extends Controller
             ['email', $request->email]
         ])->first();
         if (!$resetPassword)
-            return response()->error('Reset password token is invalid!', 400);
+            return response()->error('Reset password token is invalid!');
         $user = User::where('email', $resetPassword->email)->first();
         if (!$user)
-            return response()->error('Email is not found', 404);
+            return response()->error('Email is not found', StatusCode::NOT_FOUND);
         $user->password = bcrypt($request->password);
         $user->save();
         $resetPassword->delete();

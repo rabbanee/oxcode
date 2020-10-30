@@ -37,13 +37,14 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * The attributes that should be cast to native types.
      *
+     *
      * @var array
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
-    public function travelerReview()
+    public function travelerReviews()
     {
         return $this->hasMany('App\Models\TravelerReview');
     }
@@ -51,5 +52,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function image()
     {
         return $this->morphOne('App\Models\Image', 'imageable');
+    }
+
+    public function socialAccounts()
+    {
+        return $this->hasMany('App\Models\SocialAccount');
     }
 };

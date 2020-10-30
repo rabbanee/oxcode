@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTravelerReview;
 use App\Http\Resources\TravelerReview\TravelerReviewResource;
 use App\Models\TravelerReview;
+use App\StatusCode;
 use Illuminate\Http\Request;
 
 class TravelerReviewController extends Controller
@@ -40,16 +41,16 @@ class TravelerReviewController extends Controller
         $input = $request->only(['review', 'rating', 'attraction_id']);
 
         if (TravelerReview::where('user_id', $request->user()->id)->where('attraction_id', $request->attraction_id)->exists()) {
-            return response()->error('User has reviewed', 422);
+            return response()->error('User has reviewed', StatusCode::UNPROCESSABLE_ENTITY);
         }
 
         try {
             TravelerReview::create(array_merge($input, ['user_id' => $request->user()->id]));
         } catch (\Throwable $th) {
-            return response()->error('Failed to add review');
+            return response()->error('Failed to add review!', StatusCode::INTERNAL_SERVER_ERROR);
         }
 
-        return response()->successWithMessage('Success to add review');
+        return response()->successWithMessage('Success to add review', StatusCode::CREATED);
     }
 
     /**
@@ -62,8 +63,10 @@ class TravelerReviewController extends Controller
     {
         try {
             $review = TravelerReview::findOrFail($id);
-        } catch (\Throwable $th) {
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $th) {
             return response()->error('Traveler Review is not found');
+        } catch (\Throwable $th) {
+            return response()->error('Something went wrong', StatusCode::INTERNAL_SERVER_ERROR);
         }
         return response()->successWithKey(new TravelerReviewResource($review), 'traveler_review');
     }

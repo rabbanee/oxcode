@@ -343,6 +343,22 @@
               </li>
             </ul>
           </ul>
+
+          <h2 class="font-weight-bold">Get Detail User from Provider</h2>
+          <p>Get detail user from provider.</p>
+          <ul class="mb-5">
+            <li class="font-weight-bold">
+              URL
+            </li>
+            <p>/api/auth/{provider}/callback?code={code}</p>
+            <li class="font-weight-bold">
+              Method:
+            </li>
+            <p style="color: salmon">GET</p>
+            <li class="font-weight-bold">
+              Header:
+            </li>
+          </ul>
         </div>
       </div>
     </div>

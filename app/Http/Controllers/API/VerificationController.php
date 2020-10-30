@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\StatusCode;
 use Illuminate\Http\Request;
 
 class VerificationController extends Controller
@@ -11,7 +12,7 @@ class VerificationController extends Controller
     public function verify($user_id, Request $request)
     {
         if (!$request->hasValidSignature()) {
-            return response()->error('Invalid/Expired url provided.', 401);
+            return response()->error('Invalid/Expired url provided.', StatusCode::UNAUTHORIZED);
         }
 
         $user = User::findOrFail($user_id);
@@ -20,7 +21,7 @@ class VerificationController extends Controller
             $user->markEmailAsVerified();
         }
 
-        return redirect('https://github.com/squest');
+        return redirect()->away('http://localhost:3000/login');
     }
 
     public function resend(Request $request)
@@ -31,16 +32,16 @@ class VerificationController extends Controller
 
         try {
             $user = User::where('email', '=', $request->input('email'))->firstOrFail();
-        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $th) {
-            return response()->error('Email is not found.', 404);
+        } catch (\Throwable $th) {
+            return response()->error('Email is not found.', StatusCode::NOT_FOUND);
         }
 
         if ($user->hasVerifiedEmail()) {
-            return response()->error('Email has already verified.', 400);
+            return response()->error('Email has already verified.', StatusCode::BAD_REQUEST);
         }
 
         $user->sendEmailVerificationNotification();
 
-        return response()->successWithMessage('Email verification link sent on your email id', 200);
+        return response()->successWithMessage('Email verification link sent on your email id', StatusCode::OK);
     }
 }

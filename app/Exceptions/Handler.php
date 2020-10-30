@@ -2,6 +2,9 @@
 
 namespace App\Exceptions;
 
+use App\StatusCode;
+use Exception;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -33,5 +36,10 @@ class Handler extends ExceptionHandler
     public function register()
     {
         //
+    }
+
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        return response()->error('Unauthenticated', StatusCode::UNAUTHORIZED);
     }
 }
