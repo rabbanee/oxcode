@@ -16,7 +16,7 @@ class ListCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'attractions' => $this->collection,
+            'attractions' => ListResource::collection($this->collection),
             "links" => [
                 "first" => $this->url(1),
                 "last" => $this->url($this->lastPage()),
