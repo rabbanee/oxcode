@@ -20,8 +20,7 @@ class ImageController extends Controller
 
         $path = Storage::disk('local')->path("public/images/$image->path");
         // $imageTools = ImageTools::make($path);
-        // $imageTools->fit(300, 300, null, 'center');
-
+        // $imageTools->fit(500, 500, null, 'center');
         return response()->file($path);
     }
 }

@@ -20,7 +20,7 @@ class AttractionController extends Controller
     public function index()
     {
         $attractions = Attraction::paginate(12);
-        return response()->successWithKey(ListResource::collection($attractions), 'attractions');
+        return response()->successWithKey(ListResource::collection($attractions)->response()->getData(), 'attractions');
     }
 
     /**
