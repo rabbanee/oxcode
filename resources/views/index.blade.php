@@ -310,9 +310,10 @@
             <li class="font-weight-bold">
               Body:
             </li>
+            <p>All of Parameters are optional</p>
             <ul>
               <li>
-                JSON: <code style="color: salmon">{ "email": string, "password": string, "password_confirmation": string,"token": string }</code>
+                JSON: <code style="color: salmon">{ "name": string, "email": string, "password": string, "password_confirmation": string, "image": image }</code>
               </li>
             </ul>
           </ul>
@@ -344,6 +345,19 @@
             </ul>
           </ul>
 
+          <h2 class="font-weight-bold">Get url for RedirectToProvider</h2>
+          <p>Get url for RedirectToProvider.</p>
+          <ul class="mb-5">
+            <li class="font-weight-bold">
+              URL
+            </li>
+            <p>/api/auth/{provider}/redirect</p>
+            <li class="font-weight-bold">
+              Method:
+            </li>
+            <p style="color: salmon">GET</p>
+          </ul>
+
           <h2 class="font-weight-bold">Get Detail User from Provider</h2>
           <p>Get detail user from provider.</p>
           <ul class="mb-5">
@@ -355,9 +369,6 @@
               Method:
             </li>
             <p style="color: salmon">GET</p>
-            <li class="font-weight-bold">
-              Header:
-            </li>
           </ul>
         </div>
       </div>
