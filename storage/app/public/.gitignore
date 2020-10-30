@@ -3,4 +3,5 @@
 !images/
 !images/*/
 !images/*/*
+!images/*/*/*
 images/avatars
