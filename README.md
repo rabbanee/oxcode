@@ -1,4 +1,4 @@
-# Configure
+# Configuration
 
     1. php artisan config:cache
     2. php artisan migrate:fresh --seed
