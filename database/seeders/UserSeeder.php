@@ -42,7 +42,7 @@ class UserSeeder extends Seeder
                 'name' => $this->name[$i],
                 'email' => strtolower($email[0]) . strtolower($email[1]) . '@oxcode.dev',
                 'email_verified_at' => now(),
-                'password' => bcrypt('12345678'),
+                'password' => '12345678',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
