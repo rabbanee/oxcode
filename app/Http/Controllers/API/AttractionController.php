@@ -7,6 +7,7 @@ use App\Models\Attraction;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SearchAttraction;
 use App\Http\Resources\Attraction\DetailResource;
+use App\Http\Resources\Attraction\ListCollection;
 use App\Search\AttractionSearch;
 use Illuminate\Http\Request;
 
@@ -19,9 +20,9 @@ class AttractionController extends Controller
      */
     public function index()
     {
-        $attractions = Attraction::paginate(15);
-        // Test gedung sate's image
-        return response()->successWithKey(ListResource::collection($attractions), 'attractions');
+        $attractions = Attraction::paginate();
+        return new ListCollection($attractions);
+        // return response()->successWithKey(ListResource::collection($attractions)->response()->getData(), 'attractions');
     }
 
     /**

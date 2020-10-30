@@ -8,6 +8,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class ListResource extends JsonResource
 {
+    public static $wrap = 'attractions';
+
     /**
      * Transform the resource into an array.
      *

@@ -13,6 +13,8 @@ class Attraction extends Model
 
     protected $protected = ['id'];
 
+    protected $perPage = 12;
+
     public function city()
     {
         return $this->belongsTo('App\Models\City');
