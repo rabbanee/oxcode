@@ -69,10 +69,10 @@ class SocialAccountController extends Controller
                 $user = new User([
                     'name' => $socialUser->getName(),
                     'email' => $socialUser->getEmail(),
-                    'email_verified_at' => now(),
                 ]);
 
                 $user->save();
+                $user->markEmailAsVerified();
                 $avatar = Avatar::create($user->name)->getImageObject()->encode('png');
                 Storage::put('public/images/avatars/' . $user->id . '/avatar.png', (string) $avatar);
 
