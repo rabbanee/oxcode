@@ -235,7 +235,7 @@ class TravelerReviewSeeder extends Seeder
                 'review' => 'It\'s so lucky that Bogor still have and own this botanical gardens. The entrance ticket is affordable enough and worth to buy. Relax and refresh!',
                 'rating' => 5,
                 'user_id' => rand(1, 18),
-                'attraction_id' => '18',
+                'attraction_id' => '12',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
