@@ -27,7 +27,6 @@ class ListCollection extends ResourceCollection
                 "current_page" => $this->currentPage(),
                 "from" =>  $this->firstItem(),
                 "last_page" => $this->lastPage(),
-                'links' => $this->linkCollection()->toArray(),
                 "path" =>  $this->path(),
                 "per_page" =>  $this->perPage(),
                 "to" => $this->lastItem(),
@@ -35,6 +34,7 @@ class ListCollection extends ResourceCollection
             ],
         ];
     }
+
 
     public function toResponse($request)
     {
