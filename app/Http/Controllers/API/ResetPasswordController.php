@@ -89,7 +89,7 @@ class ResetPasswordController extends Controller
         $user = User::where('email', $resetPassword->email)->first();
         if (!$user)
             return response()->error('Email is not found', StatusCode::NOT_FOUND);
-        $user->password = bcrypt($request->password);
+        $user->password = $request->password;
         $user->save();
         $resetPassword->delete();
         $user->notify(new ResetPasswordSuccess($resetPassword));
