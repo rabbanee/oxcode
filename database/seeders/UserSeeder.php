@@ -50,7 +50,7 @@ class UserSeeder extends Seeder
             $user->save();
             $avatar = Avatar::create($user->name)->getImageObject()->encode('png');
             Storage::put('public/images/avatars/' . $user->id . '/avatar.png', (string) $avatar);
-            $user->image()->create(['path' => "avatars/$user->id/avatar.png", 'thumbnail' => 'true']);
+            $user->image()->create(['path' => "avatars/$user->id/avatar.png", 'thumbnail' => true]);
         }
     }
 }
