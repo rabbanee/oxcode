@@ -40,7 +40,7 @@ class ResetPasswordRequest extends Notification
      */
     public function toMail($notifiable)
     {
-        $url = "https://localhost:3000/reset-password/$this->token";
+        $url = env('FRONT_END_URL') . "reset-password/$this->token";
 
         return (new MailMessage)
             ->line('You are receiving this email because we received a reset password request for your account.')

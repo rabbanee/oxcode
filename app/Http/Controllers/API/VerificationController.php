@@ -21,7 +21,7 @@ class VerificationController extends Controller
             $user->markEmailAsVerified();
         }
 
-        return redirect()->away('http://localhost:3000/login');
+        return redirect()->away(env('FRONT_END_URL') . 'login');
     }
 
     public function resend(Request $request)
