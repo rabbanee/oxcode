@@ -57,6 +57,7 @@ class VerifyEmail extends Notification
      */
     public function toMail($notifiable)
     {
+        // for push
         $verificationUrl = $this->verificationUrl($notifiable);
         return (new MailMessage)
             ->subject('Verify Email Address')
